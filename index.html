@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="老年情感 AI 与智慧养老文献检索库。" />
+  <title>老年情感 AI 文献库</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">PUBLIC LITERATURE LIBRARY</p>
+      <h1>老年情感 AI · 智慧养老文献库</h1>
+      <p class="hero-copy">从研究需求出发，快速找到推荐文献；查看简要说明，并直接打开已整理的全文。</p>
+      <div class="hero-meta"><span id="record-count">47</span> 篇去重文献 <span class="dot">•</span> 最后整理：2026 年 9 月 15 日</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro-card" aria-labelledby="how-title">
+      <div>
+        <p class="section-kicker">HOW TO SEARCH</p>
+        <h2 id="how-title">先选你需要解决的问题</h2>
+        <p>点击下方需求卡片，系统会自动筛选推荐文献；也可直接输入关键词，按研究类别、研究类型或阅读优先级进一步筛选。</p>
+      </div>
+      <div class="notice"><strong>全文打开说明</strong><br>PDF 可在网页中直接阅读；CAJ 文件会在新标签页打开或下载，需本机安装支持 CAJ 的阅读器。</div>
+    </section>
+
+    <section aria-labelledby="need-title">
+      <div class="section-heading"><div><p class="section-kicker">START HERE</p><h2 id="need-title">我需要什么类型的文献？</h2></div><button id="clear-needs" class="text-button">清除需求筛选</button></div>
+      <div id="need-grid" class="need-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="search-panel" aria-labelledby="search-title">
+      <div class="section-heading"><div><p class="section-kicker">SEARCH & FILTER</p><h2 id="search-title">检索推荐文献</h2></div><p id="result-summary" class="result-summary"></p></div>
+      <div class="controls">
+        <label class="search-box" for="search-input"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="输入关键词，如：孤独感、信任、语音交互、数字鸿沟、健康管理" autocomplete="off" /></label>
+        <label><span>文献类别</span><select id="category-filter"><option value="">全部类别</option></select></label>
+        <label><span>研究类型</span><select id="kind-filter"><option value="">全部研究类型</option></select></label>
+        <label><span>推荐阅读</span><select id="priority-filter"><option value="">全部</option><option value="优先">优先</option><option value="补充">补充</option></select></label>
+      </div>
+    </section>
+
+    <section id="results" class="results" aria-live="polite"></section>
+  </main>
+
+  <dialog id="reader-dialog" class="reader-dialog">
+    <div class="reader-head"><div><p class="section-kicker">FULL TEXT</p><h2 id="reader-title">全文阅读</h2></div><div><a id="open-new-tab" class="secondary-button" target="_blank" rel="noopener">在新标签页打开</a><button id="close-reader" class="icon-button" aria-label="关闭全文阅读器">×</button></div></div>
+    <iframe id="pdf-frame" title="PDF 全文阅读器"></iframe>
+  </dialog>
+  <footer>由已整理的文献材料生成。引用、量表复用和研究结论请回到原文核对。</footer>
+  <script src="app.js"></script>
+</body>
+</html>
